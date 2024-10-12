@@ -1,0 +1,1376 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&family=New+Amsterdam&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    --green: #015144;
+    --lightGreen: #037360;
+    --gold: gold;
+    --black: #151717;
+    --putih: #fff;
+    --bg: #e8f7f7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+    /* font-family: "Montserrat", sans-serif; */
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.8rem 3% 0.5rem;
+    background-color: var(--putih);
+    border-bottom: 2px solid var(--putih);
+    z-index: 999;
+}
+
+main {
+    min-height: 100vh;
+    background: var(--bg);
+    padding-bottom: 3rem;
+}
+
+section {
+    padding: 3rem 3% 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.container_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.container_logo img {
+    width: 2.5rem;
+}
+
+.text_batubeling {
+    display: flex;
+    color: var(--green);
+    font-family: "New Amsterdam", sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.icon-login {
+    display: none;
+}
+
+.nama_login {
+    color: var(--green);
+    font-size: 0.8rem;
+}
+
+/* From search  */
+.search {
+    width: 70%;
+    position: relative;
+}
+
+.input-container {
+    width: 100%;
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    top: calc(50% + 5px);
+    transform: translateY(calc(-50% - 5px));
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    transition: 0.2s linear;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.input:focus {
+    outline: none;
+    border: 1.5px solid gray;
+}
+
+.input-container:hover > .icon {
+    animation: anim 1s linear infinite;
+}
+
+/* start hasil pencarian */
+.result {
+    position: absolute;
+    width: 100%;
+    overflow-y: scroll;
+    max-height: 20rem;
+    background: white;
+}
+
+.card-result {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-bottom: 0.5px solid gray;
+}
+
+.card-result:hover {
+    background: #f2f2f2;
+}
+
+.card-result img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.card-result span {
+    color: black;
+}
+
+/* start autenticate */
+.autentication {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background: var(--green);
+    box-shadow: 0 0 0 #222, 1px 1px 5px #444, inset 1px 1px 10px var(--green),
+        inset -1px -1px 5px rgb(80, 225, 80);
+    color: 222;
+    border: none;
+    font-size: 0.8rem;
+    color: black;
+    font-weight: 600;
+    transition: 500ms;
+    color: var(--putih);
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 #444, 1px 1px 5px #222, inset 1px 1px 5px rgb(80, 225, 80),
+        inset -1px -1px 5px var(--green);
+    transition: 500ms;
+}
+
+/* list menu */
+
+.list ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+    margin-top: 1rem;
+}
+
+.list ul li a {
+    letter-spacing: 1px;
+    color: var(--green);
+}
+
+.list ul li a:hover {
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* end navbar */
+
+/* start hero */
+.hero {
+    padding-top: 8rem;
+}
+
+.container_baner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25rem;
+    margin: 0 0 1px;
+    overflow: hidden; /* mengatur overflow agar tidak muncul scroll */
+    border-radius: 10px;
+}
+
+.item_baner {
+    width: 100%;
+    object-fit: cover;
+}
+
+.item_baner img {
+    width: 100%;
+    height: 100%;
+}
+
+.container_baner .swiper-pagination-bullet {
+    background-color: gray;
+}
+
+/*start produk unggulan*/
+
+.list_unggulan {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+.card-unggulan {
+    width: 12rem;
+    padding-top: 3px;
+    background: var(--green);
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.card-unggulan::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    background-image: linear-gradient(180deg, var(--gold), var(--gold));
+    height: 150%;
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card-unggulan::after {
+    content: "";
+    position: absolute;
+    background: var(--green);
+    inset: 3px;
+    border-radius: 5px;
+}
+
+.cild-unggulan {
+    width: 97%;
+    height: 60%;
+    z-index: 1;
+    border-radius: 15px;
+}
+
+.image-unggulan {
+    width: 100%;
+    height: 200px;
+}
+
+.image-unggulan img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.judul-unggulan {
+    color: var(--putih);
+    font-weight: 600;
+}
+
+.harga-unggulan {
+    color: var(--gold);
+}
+
+.harga-unggulan span {
+    color: var(--putih);
+}
+
+.wilayah-unggulan {
+    font-weight: 500;
+    color: var(--putih);
+}
+
+/* Start Kategori */
+.container_kategori {
+    margin-top: 1rem;
+    padding: 1rem 0.8rem;
+    background: var(--putih);
+    border-radius: 10px;
+}
+
+.container_kategori .swiper-pagination-bullet {
+    background-color: gray;
+    margin-top: 1rem;
+}
+
+.container_kategori .swiper-slide-button {
+    width: 1rem;
+    height: 2rem;
+    color: white;
+    background: gray;
+}
+
+.container_kategori .swiper-slide-button::after {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.text-kategori {
+    font-size: 1.2rem;
+    color: var(--green);
+    text-shadow: -1px 1px 1px black;
+}
+
+.slider_kategori,
+.container_unggulan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 1rem;
+    max-width: 100%;
+}
+
+.cild-card {
+    text-align: center;
+    padding: 0 0 1.5rem 0;
+}
+
+.list_kategori .card img {
+    width: 7rem;
+    height: 7rem;
+}
+
+.cild-card p {
+    margin-top: -0.1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--black);
+}
+
+/*end hero*/
+
+/* PAGINATION */
+
+.container__paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    color: white;
+    margin-top: 2rem;
+}
+
+.container__paginator li {
+    background: #f0f3f7;
+    padding: 5px 10px;
+}
+
+.container__paginator li.active {
+    background: var(--green);
+}
+
+.container__paginator a {
+    color: var(--green);
+}
+
+/* Produk */
+.pagination_produk {
+    max-width: 100%;
+    background: white;
+    padding: 1rem 0.8rem;
+    border-radius: 10px;
+}
+
+.pagination_produk h1 {
+    font-size: 1.2rem;
+    color: var(--green);
+    text-shadow: -1px 1px 1px black;
+    margin-bottom: 1rem;
+}
+
+.container_produk {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: var(--putih);
+}
+
+.produk_card {
+    width: 180px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    color: black;
+    background: var(--green);
+    box-shadow: 5px 5px 10px #f2f2f2;
+    overflow: hidden;
+}
+.produk_card:hover .image img {
+    transform: scale(1.1);
+}
+
+.image {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.descripsi {
+    padding: 0.3rem 0.4rem 1rem;
+    width: 100%;
+    height: 7rem;
+}
+
+.descripsi span {
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+}
+
+.nama_produk {
+    font-size: 0.75rem;
+    overflow: hidden; /* Sembunyikan teks yang melebihi kontainer */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Jumlah baris yang ingin ditampilkan */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis; /* Tampilkan titik-titik di akhir */
+}
+
+.judul-produk {
+    color: var(--putih);
+    font-weight: bold;
+}
+
+.harga {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    overflow: hidden; /* Sembunyikan teks yang melebihi kontainer */
+    text-overflow: ellipsis; /* Tampilkan titik-titik di akhir */
+}
+
+.harga span {
+    font-size: 0.7rem;
+    display: inline;
+}
+
+.harga-produk {
+    color: var(--gold);
+}
+
+.wilayah {
+    margin-top: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wilayah img {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.wilayah span {
+    font-size: 0.68rem;
+    color: var(--putih);
+}
+
+/* End Produk */
+
+/* Start Show */
+
+.show {
+    padding-top: 7rem;
+}
+
+.show_home {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 1rem 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.home_gambar {
+    width: 45%;
+    height: 35rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #f2f2f2;
+}
+
+.home_gambar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.image_show {
+    width: 100%;
+    height: 88%;
+}
+
+.list_image {
+    margin-top: 1rem;
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    height: 10%;
+}
+
+.cild_image_show {
+    width: 4rem;
+    height: 100%;
+    /* box-shadow: 0 0 5px black; */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+.cild_image_show:hover {
+    border-color: var(--green);
+}
+
+.cild_image_show img.active {
+    border: 3px solid var(--green);
+}
+
+.induk-whatsapp {
+    width: 1.5rem;
+}
+
+.home_desc {
+    width: 50%;
+    color: #273544;
+}
+
+.home_desc h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #273544;
+}
+
+.home_desc hr {
+    border: 1px solid #f2f2f2;
+    margin-bottom: 1rem;
+}
+
+.home_desc strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #273544;
+    font-size: 0.9rem;
+}
+
+.descripsi_show div {
+    max-height: 17rem; /* Batasi tinggi teks */
+    overflow: hidden; /* Sembunyikan teks yang melebihi batas */
+    transition: max-height 0.5s ease; /* Transisi halus saat mengubah tinggi */
+}
+
+.descripsi_show div.expanded {
+    max-height: 1000px; /* Cukup besar untuk menampilkan seluruh teks */
+}
+
+.descripsi_show #read-more-btn {
+    margin-top: 5px;
+    color: rgb(37, 86, 248);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.descripsi_show #read-more-btn:hover {
+    color: rgb(26, 60, 175);
+}
+
+.show_merchat {
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    margin: 1rem 0 0.5rem;
+    border-bottom: 1px solid gray;
+}
+
+.show_merchat i {
+    font-size: 2rem;
+    color: var(--green);
+}
+
+.show_merchat:hover i {
+    color: var(--lightGreen);
+}
+
+.show_merchat span {
+    color: var(--green);
+    font-weight: bold;
+}
+
+.hubungi_contact {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hubungi a {
+    color: var(--green);
+    display: block;
+}
+
+.hubungi a:hover {
+    color: var(--lightGreen);
+}
+/* End Show */
+
+/* Start Merchant profil*/
+
+.merchant {
+    position: relative;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 25rem;
+    /* background: red; */
+    object-fit: cover;
+}
+
+.baner_merchant {
+    width: 100%;
+    height: 100%;
+}
+
+.transparant_merchant {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.profil_merchant {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    left: 2%;
+    bottom: 5%;
+    font-family: "Poppins";
+    cursor: pointer;
+}
+
+.profil_merchant img {
+    width: 5rem;
+    height: 5rem;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.profil_merchant h1 {
+    color: white;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+        -1px 1px 0 #000;
+}
+
+.profil_merchant p {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+        -1px 1px 0 #000;
+}
+
+.header_merchant {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.pencarianProduk {
+    width: 20rem;
+    display: flex;
+}
+
+.pencarianProduk input {
+    width: 80%;
+    padding: 0.1rem 0.2rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    outline: none;
+    border: 1px solid gray;
+}
+
+.pencarianProduk button {
+    outline: none;
+    width: 20%;
+    border: 1px solid gray;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-weight: 600;
+    background: var(--lightGreen);
+    color: var(--putih);
+}
+
+.about {
+    padding-top: 8rem;
+    font-family: "poppins";
+}
+
+.about h1 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: var(--gold);
+    font-size: 5rem;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+    font-weight: 900;
+}
+
+.about-content {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 10px;
+    background: white;
+    padding: 1rem 5rem 1rem 1rem;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    color: var(--green);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 var(--lightGreen),
+        -1px 1px 0 var(--lightGreen), 1px 1px 0 var(--lightGreen);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.about-content h3 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--green);
+    text-shadow: -1px -1px 0 var(--black), 1px -1px 0 var(--lightGreen),
+        -1px 1px 0 var(--black), 1px 1px 0 var(--lightGreen);
+    letter-spacing: 2px;
+}
+
+.about-content p {
+    font-size: 0.9rem;
+}
+
+.about-content strong {
+    font-size: 0.8rem;
+}
+
+.about-content ul {
+    margin: 1rem 0 0 1rem;
+}
+
+.about-content ul li {
+    list-style-type: disc;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.about-image {
+    width: 100%;
+    object-fit: cover;
+}
+
+.about-image img {
+    margin-top: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+#main-content {
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem 3rem 1rem 1.5rem;
+}
+
+#main-content li {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+#pendaftaran,
+#verifikasi,
+#ganti-password,
+#fitur {
+    margin-bottom: 2rem;
+}
+
+#main-content h2 {
+    font-size: 1.5rem;
+    color: var(--green);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 var(--lightGreen),
+        -1px 1px 0 var(--lightGreen), 1px 1px 0 var(--lightGreen);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+#main-content h3 {
+    font-size: 1rem;
+    color: var(--green);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.footer {
+    display: flex;
+    background: var(--putih);
+    justify-content: space-between;
+    padding: 1rem 3%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.judul-footer {
+    font-weight: 600;
+    margin-top: 0.9rem;
+    font-size: 1rem;
+    color: var(--green);
+}
+
+.footer ul {
+    margin-top: 0.8rem;
+}
+
+.footer ul li {
+    margin-bottom: 5px;
+}
+
+.footer a {
+    color: var(--black);
+    font-weight: 300;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.footer a:hover {
+    color: var(--green);
+}
+
+.footer-logo {
+    width: 25rem;
+    text-align: center;
+}
+
+.logo-descripsi {
+    margin-top: 0.5rem;
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: var(--black);
+}
+
+.footer-logo img {
+    width: 80%;
+}
+
+.footer-media {
+    width: 6rem;
+}
+
+.footer-location {
+    width: 10rem;
+}
+
+.footer-contact {
+    width: 20rem;
+}
+
+.footer-contact b {
+    color: var(--green);
+}
+
+/* Media Query */
+@media screen and (max-width: 879px) {
+    header {
+        padding: 0.5rem 3%;
+    }
+
+    main {
+        margin-top: 2.5rem;
+    }
+
+    /* navbar */
+
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .container-navbar {
+        width: 100%;
+    }
+
+    .autentication {
+        gap: 15px;
+    }
+
+    .autentication .fa {
+        font-size: 0.9rem;
+    }
+
+    .list ul {
+        margin-top: 0.5rem;
+    }
+
+    .container_baner {
+        height: 20rem;
+    }
+
+    /* end navbar */
+
+    /* Start Produk */
+    .harga {
+        font-size: 0.7rem;
+        font-weight: normal;
+    }
+
+    .harga span {
+        font-size: 0.8rem;
+    }
+
+    /* start show */
+
+    .show_home {
+        flex-direction: column;
+    }
+
+    .home_gambar {
+        width: 100%;
+    }
+
+    .home_desc {
+        width: 100%;
+    }
+
+    .home_desc h1 {
+        margin-top: 1rem;
+    }
+
+    .card-unggulan {
+        width: 11rem;
+    }
+
+    /* end show */
+
+    .judul-footer {
+        margin-top: 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .footer ul {
+        margin-top: 0.8rem;
+    }
+
+    .footer ul li {
+        margin-bottom: 5px;
+    }
+
+    .footer a {
+        color: var(--black);
+        font-weight: 600;
+        font-size: 0.7rem;
+        display: block;
+    }
+
+    .footer a:hover {
+        color: var(--gold);
+    }
+
+    .footer-logo {
+        width: 11rem;
+        text-align: center;
+    }
+
+    .logo-descripsi {
+        margin-top: 0.8rem;
+        font-size: 0.7rem;
+    }
+
+    .footer-logo img {
+        width: 100%;
+    }
+
+    .footer-media {
+        width: 5rem;
+    }
+
+    .footer-location {
+        width: 8rem;
+    }
+
+    .footer-contact {
+        width: 8rem;
+    }
+
+    .footer-contact b {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 584px) {
+    /* navbar */
+    .logo {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .icon-login {
+        display: flex;
+        gap: 10px;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+
+    .autentication {
+        display: none;
+    }
+
+    /* end navbar */
+
+    /* Start Baner */
+
+    main {
+        margin-top: 2rem;
+    }
+
+    section {
+        padding: 1rem 1% 0;
+    }
+
+    .container_baner {
+        height: 15rem;
+    }
+
+    /* Start Kategori */
+    .text-kategori {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-shadow: none;
+    }
+
+    .list_kategori .card img {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .list_kategori .card p {
+        font-size: 0.7rem;
+    }
+
+    /* Start Unggulan */
+
+    /* Product */
+    .container_produk {
+        justify-content: space-around;
+    }
+
+    .produk_card {
+        width: 10rem;
+    }
+
+    .produk_card .image {
+        height: 10rem;
+    }
+
+    .descripsi {
+        padding: 0.5rem 0.3rem 0.8rem;
+    }
+
+    .nama_produk {
+        font-size: 0.55rem;
+    }
+
+    .descripsi .wilayah img {
+        font-size: 8px;
+    }
+
+    .descripsi .wilayah span {
+        font-size: 0.5rem;
+    }
+    /* End Produk */
+
+    /* Product Unggulan */
+
+    .card-unggulan {
+        width: 9rem;
+    }
+
+    .image-unggulan {
+        height: 9rem;
+    }
+
+    /* Show */
+
+    .home_gambar {
+        max-width: 20rem;
+        max-height: 25rem;
+        margin: auto;
+    }
+
+    .image_show {
+        height: 70%;
+    }
+
+    .list_image {
+        height: 15%;
+    }
+
+    .home_desc h1 {
+        font-size: 1.5rem;
+    }
+
+    .home_desc strong {
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+
+    .descripsi_show {
+        font-size: 0.7rem;
+    }
+
+    .descripsi_show #read-more-btn {
+        font-size: 0.7rem;
+    }
+
+    .show_merchat i {
+        font-size: 1.5rem;
+    }
+
+    .show_merchat span {
+        font-size: 1rem;
+    }
+
+    /* Profil Merchant */
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo,
+    .footer-media,
+    .footer-location,
+    .footer-contact {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    /* navbar */
+
+    .container_logo img {
+        width: 2rem;
+    }
+
+    .text_batubeling {
+        font-size: 0.8rem;
+        display: none;
+    }
+
+    .nama_login {
+        font-size: 0.7rem;
+    }
+
+    .icon-login {
+        gap: 0.7rem;
+    }
+
+    .btn {
+        padding: 0.5rem 0.8rem;
+        border-radius: 5px;
+        background: var(--green);
+        box-shadow: 0 0 0 #222, 1px 1px 5px #444,
+            inset 1px 1px 10px var(--green),
+            inset -1px -1px 5px rgb(80, 225, 80);
+        color: var(--putih);
+        border: none;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transition: 500ms;
+    }
+
+    .btn:hover {
+        box-shadow: 0 0 0 #444, 1px 1px 5px #222,
+            inset 1px 1px 5px rgb(80, 225, 80), inset -1px -1px 5px var(--green);
+        transition: 500ms;
+    }
+
+    .list ul {
+        font-size: 0.6rem;
+    }
+
+    /* Product Unggulan */
+    .card-unggulan {
+        width: 10rem;
+    }
+
+    .judul-unggulan {
+        font-weight: 300;
+    }
+
+    .harga-unggulan {
+        color: var(--gold);
+        font-size: 0.6rem;
+    }
+
+    .harga-unggulan span {
+        font-size: 0.6rem;
+    }
+
+    /* show  */
+
+    .home_gambar {
+        max-width: 15rem;
+        height: 20rem;
+    }
+
+    .image_show {
+        height: 75%;
+    }
+
+    .list_image {
+        height: 15%;
+    }
+
+    .home_desc h1 {
+        font-size: 1.2rem;
+    }
+
+    .home_desc strong {
+        font-size: 0.66rem;
+    }
+
+    .show_merchat i {
+        font-size: 1rem;
+    }
+
+    .show_merchat span {
+        font-size: 0.7rem;
+    }
+
+    .descripsi_show {
+        font-size: 0.6rem;
+    }
+
+    .descripsi_show #read-more-btn {
+        font-size: 0.6rem;
+    }
+
+    /* Start Merchant profil*/
+
+    .hero {
+        padding-top: 7rem;
+    }
+    .merchant {
+        height: 13rem;
+    }
+
+    .profil_merchant img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .profil_merchant h1 {
+        font-size: 0.8rem;
+    }
+
+    .profil_merchant p {
+        font-size: 0.6rem;
+    }
+
+    .pencarianProduk {
+        width: 13rem;
+        display: flex;
+    }
+
+    .pencarianProduk input {
+        width: 75%;
+        padding: none;
+    }
+
+    .pencarianProduk button {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    /* Produk Unggulan*/
+    .card-unggulan {
+        width: 8.5rem;
+        margin: auto;
+    }
+
+    .image-unggulan {
+        height: 8.5rem;
+    }
+
+    .produk_card {
+        width: 8.5rem;
+    }
+
+    .produk_card .image {
+        height: 8.5rem;
+    }
+}

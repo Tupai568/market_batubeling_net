@@ -1,0 +1,905 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+section {
+  min-height: 100vh;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login .form {
+  z-index: 1;
+  position: fixed;
+  top: 19%;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  border: 1px solid #184e00;
+  padding: 30px;
+  width: 450px;
+  border-radius: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.login .form #cancel {
+  position: absolute;
+  font-size: 2rem;
+  top: 2%;
+  right: 2%;
+}
+.login .form.active {
+  display: flex;
+}
+.login ::-moz-placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.login ::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.login .form button {
+  align-self: flex-end;
+}
+.login .flex-column > label {
+  color: #151717;
+  font-weight: 600;
+}
+.login .inputForm {
+  border: 1.5px solid #ecedec;
+  border-radius: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  transition: 0.2s ease-in-out;
+}
+.login .input {
+  margin-left: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+.login .input:focus {
+  outline: none;
+}
+.login .inputForm:focus-within {
+  border: 1.5px solid #2d79f3;
+}
+.login .flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+.login .flex-row > div > label {
+  font-size: 14px;
+  color: black;
+  font-weight: 400;
+}
+.login .span {
+  font-size: 14px;
+  margin-left: 5px;
+  color: #2d79f3;
+  font-weight: 500;
+  cursor: pointer;
+}
+.login .button-submit {
+  margin: 20px 0 10px 0;
+  background-color: #151717;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+}
+.login .p {
+  text-align: center;
+  color: black;
+  font-size: 14px;
+  margin: 5px 0;
+}
+.login .btn {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 10px;
+  border: 1px solid #ededef;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.login .btn:hover {
+  border: 1px solid #2d79f3;
+}
+
+.notification {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notification .box-notif {
+  position: fixed;
+  top: 15%;
+  text-align: center;
+  z-index: 2;
+}
+.notification .box-notif span {
+  padding: 0.2rem 1.2rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: black;
+}
+.notification .box-notif .succes {
+  background: lightcyan;
+}
+.notification .box-notif .error {
+  background: rgb(255, 159, 159);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 9%;
+  background: #184e00;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+header #menu-icon {
+  color: #ffc107;
+  display: none;
+}
+header img {
+  filter: drop-shadow(-2px 2px 1px rgb(0, 0, 0));
+  width: 6rem;
+}
+header nav {
+  width: 50%;
+}
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav ul li a {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+header nav ul li:hover a {
+  color: #ffc107;
+}
+header nav .btn {
+  height: 2.5rem;
+  width: 6.3rem;
+  border-radius: 10px;
+  background: #ffc107;
+  box-shadow: 0 0 0 #222, 5px 5px 15px #444, inset 5px 5px 10px #ba8c00, inset -5px -5px 10px #ffdd78;
+  color: 222;
+  border: none;
+  font-size: 1rem;
+  color: black;
+  font-weight: 600;
+  transition: 500ms;
+}
+header nav .btn:hover {
+  box-shadow: 0 0 0 #444, 5px 5px 15px #222, inset 5px 5px 10px #ffdd78, inset -5px -5px 10px #ba8c00;
+  transition: 500ms;
+}
+
+.quran {
+  padding: 10rem 9% 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #fff;
+  gap: 1rem;
+}
+.quran .box-ayat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #184e00;
+  border-radius: 15px;
+  width: 20rem;
+  padding: 2rem 1rem;
+  color: #ffc107;
+  cursor: pointer;
+  box-shadow: 0 0 0 #222, 5px 5px 5px #444, inset 5px 5px 5px #098547, inset -5px -5px 5px #3fa874;
+  transition: 500ms;
+}
+.quran .box-ayat .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.quran .box-ayat .box .number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: #ffc107;
+  color: black;
+  border-radius: 5px;
+  transform: rotate(45deg);
+}
+.quran .box-ayat .box .number p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  transform: rotate(-45deg);
+}
+.quran .box-ayat .box .surat h6 {
+  font-size: 1rem;
+}
+.quran .box-ayat .box .surat p {
+  margin-top: 2px;
+  font-size: 0.7rem;
+}
+.quran .box-ayat .ayat h6 {
+  font-size: 1rem;
+}
+.quran .box-ayat .ayat p {
+  margin-top: 2px;
+  font-size: 0.7rem;
+}
+.quran .box-ayat:hover {
+  box-shadow: 0 0 0 #444, 5px 5px 5px #222, inset 5px 5px 5px #3fa874, inset -5px -5px 5px #098547;
+  transition: 500ms;
+}
+
+.resultSurat {
+  width: 100%;
+  padding: 10rem 9% 2rem;
+}
+.resultSurat .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #184e00;
+  color: var(--text-color);
+  padding: 1rem;
+}
+.resultSurat .box h3 {
+  font-size: 2rem;
+  direction: rtl;
+  color: #184e00;
+  margin: 2rem 0;
+  letter-spacing: 1px;
+}
+.resultSurat .box h4 {
+  direction: ltr;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+}
+
+.hero {
+  background: #184e00;
+}
+.hero .container {
+  padding: 10rem 9% 0;
+}
+.hero .container .text {
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+.hero .container .text span {
+  margin-left: 5px;
+  color: #ffc107;
+  filter: drop-shadow(0 3px 1px rgb(0, 0, 0));
+}
+.hero .container .cild-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  margin-top: 3rem;
+}
+.hero .container .cild-container .content {
+  font-weight: bold;
+}
+.hero .container .cild-container .content h3 {
+  font-size: 3rem;
+  color: #ffc107;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+.hero .container .cild-container .content p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+  color: #fff;
+}
+.hero .container .cild-container .content button {
+  height: 3.3rem;
+  width: 12.2rem;
+  border-radius: 10px;
+  background: #ffc107;
+  box-shadow: 0 0 0 #222, 5px 5px 15px #444, inset 5px 5px 10px #ba8c00, inset -5px -5px 10px #ffdd78;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+  transition: 500ms;
+}
+.hero .container .cild-container .content button:hover {
+  box-shadow: 0 0 0 #444, 5px 5px 15px #222, inset 5px 5px 10px #ffdd78, inset -5px -5px 10px #ba8c00;
+  transition: 500ms;
+}
+.hero .container .cild-container img {
+  filter: drop-shadow(0 3px 1px rgb(0, 0, 0));
+}
+
+.memilih {
+  background: #fff;
+}
+.memilih .container {
+  padding: 0 9% 2rem;
+  margin-top: -7%;
+  text-transform: capitalize;
+}
+.memilih .container .sub-judul h3 {
+  text-align: center;
+  color: #184e00;
+  font-size: 2rem;
+  font-weight: 900;
+}
+.memilih .container .sub-judul h3 span {
+  color: #ffc107;
+  text-shadow: -2px 2px 2px black;
+}
+.memilih .container .sub-judul p {
+  margin-top: 5px;
+  text-align: center;
+}
+.memilih .container .alasan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  gap: 2rem;
+}
+.memilih .container .alasan .cild-alasan {
+  width: 30%;
+  padding: 1rem;
+  text-align: center;
+}
+.memilih .container .alasan .cild-alasan img {
+  display: block;
+  margin: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 3px 3px rgb(0, 0, 0));
+}
+.memilih .container .alasan .cild-alasan h4 {
+  font-size: 1.2rem;
+  color: #184e00;
+}
+.memilih .container .alasan .cild-alasan p {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.memilih .container .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  width: 100%;
+  height: 250px;
+  gap: 1rem;
+  border-radius: 1em;
+  box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.5);
+  background: #184e00;
+}
+.memilih .container .content .text {
+  width: 70%;
+}
+.memilih .container .content .text h3 {
+  color: #ffc107;
+  text-shadow: 2px 2px 1px black;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.memilih .container .content .text p {
+  font-weight: 500;
+  text-shadow: 0 1px 3px black;
+  color: #fff;
+}
+.memilih .container .content button {
+  height: 3.3rem;
+  width: 12.2rem;
+  border-radius: 10px;
+  background: #ffc107;
+  box-shadow: 0 0 0 #222, 5px 5px 15px #444, inset 5px 5px 10px #ba8c00, inset -5px -5px 10px #ffdd78;
+  font-weight: 600;
+  border: none;
+  font-size: 1rem;
+  color: black;
+  transition: 500ms;
+}
+.memilih .container .content button:hover {
+  box-shadow: 0 0 0 #444, 5px 5px 15px #222, inset 5px 5px 10px #ffdd78, inset -5px -5px 10px #ba8c00;
+  transition: 500ms;
+}
+
+.about {
+  background-color: #184e00;
+  min-height: 10vh;
+}
+.about .container {
+  padding: 0 9% 2rem;
+  margin-top: -7%;
+}
+.about h3 {
+  text-align: center;
+  text-shadow: -2px 2px 2px black;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 7%;
+  font-weight: 900;
+}
+.about h3 span {
+  color: #ffc107;
+}
+.about p {
+  color: #fff;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.program {
+  background: #fff;
+}
+.program .container {
+  padding: 0 9% 2rem;
+  margin-top: 2%;
+}
+.program .container h3 {
+  text-align: center;
+  color: #ffc107;
+  letter-spacing: 1px;
+  text-shadow: -2px 2px 2px black;
+  font-weight: 900;
+  font-size: 2rem;
+  margin-bottom: 7%;
+}
+.program .container .cild-program {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  border-radius: 10px;
+  border-radius: 1em;
+}
+.program .container .cild-program .box-program {
+  width: 33%;
+  height: 170px;
+  margin-bottom: 1rem;
+}
+.program .container .cild-program .box-program img {
+  filter: drop-shadow(0 3px 1px #ffc107);
+  width: 100%;
+  height: 100%;
+}
+.program .container .youtube {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+.program .container .youtube iframe {
+  box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  width: 49%;
+}
+
+.register {
+  background: #184e00;
+}
+.register .container {
+  padding: 3rem 9% 2rem;
+}
+.register .container h3 {
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 2rem;
+  text-shadow: 0 2px 1px black;
+  margin-bottom: 5rem;
+}
+.register .container h3 span {
+  color: #ffc107;
+}
+.register .container .container-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register .container .container-register form {
+  background: #fff;
+  padding: 4rem 2.5rem 3rem;
+  border-radius: 0.5rem;
+  width: 70%;
+}
+.register .container .container-register form h4,
+.register .container .container-register form p {
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+.register .container .container-register form h4 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+.register .container .container-register form p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #184e00;
+}
+.register .container .container-register form .container-input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.register .container .container-register form .container-input .input {
+  width: 100%;
+  height: 3rem;
+  padding: 0 1rem;
+  border-radius: 10px;
+  border: 1px solid #184e00;
+}
+.register .container .container-register form .container-input .danger {
+  border: 2px solid red;
+}
+.register .container .container-register form .container-input .input:focus {
+  border: 1px solid #ffc107;
+}
+.register .container .container-register form .container-input .flex {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+.register .container .container-register form .container-input .kiri,
+.register .container .container-register form .container-input .kanan {
+  position: absolute;
+  color: red;
+  bottom: -25%;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+.register .container .container-register form .container-input .kanan {
+  right: 0;
+}
+.register .container .container-register form .container-input .radio {
+  position: relative;
+  margin-top: 1rem;
+  gap: 5rem;
+}
+.register .container .container-register form .container-input .radio h6 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+}
+.register .container .container-register form .container-input .radio label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+.register .container .container-register form .container-input .bimbingan {
+  margin-top: 1rem;
+}
+.register .container .container-register form .container-input .bimbingan h6 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+}
+.register .container .container-register form .container-input .bimbingan label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+.register .container .container-register form .container-input .btn {
+  margin-top: 1rem;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 5px;
+  background: #ffc107;
+  box-shadow: 0 0 0 #222, 5px 5px 15px #444, inset 5px 5px 10px #ba8c00, inset -5px -5px 10px #ffdd78;
+  border: none;
+  font-size: 1rem;
+  color: black;
+  font-weight: 600;
+  transition: 500ms;
+}
+.register .container .container-register form .container-input .btn:hover {
+  box-shadow: 0 0 0 #444, 5px 5px 15px #222, inset 5px 5px 10px #ffdd78, inset -5px -5px 10px #ba8c00;
+  transition: 500ms;
+}
+
+footer {
+  height: 50px;
+  line-height: 50px;
+  background: #184e00;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 70%;
+  }
+  .hero img {
+    width: 30rem;
+  }
+  .hero .container .cild-container {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 991px) {
+  header {
+    padding: 1.2rem 3%;
+  }
+  .hero .container {
+    padding: 10rem 3% 0;
+  }
+  .memilih .container {
+    padding: 0 3%;
+  }
+  .about .container {
+    padding: 0 3% 2rem;
+  }
+  .program .container {
+    padding: 0 3%;
+  }
+  .register .container {
+    padding: 0 3% 3rem;
+  }
+  .quran {
+    padding: 10rem 3% 2rem;
+  }
+  .quran .box-ayat {
+    width: 19rem;
+  }
+}
+@media (max-width: 768px) {
+  header #menu-icon {
+    display: block;
+    font-size: 3.6rem;
+    z-index: 1;
+  }
+  header img {
+    width: 9rem;
+  }
+  header nav {
+    width: 80%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #184e00;
+    transform: translateX(100%);
+    transition: 0.5s ease-in-out;
+  }
+  header nav ul {
+    justify-content: space-evenly;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header nav ul li a {
+    font-size: 1.3rem;
+  }
+  header nav ul .btn {
+    height: 3.5rem;
+    font-size: 1.3rem;
+    width: 9rem;
+    font-weight: 700;
+    box-shadow: 0 0 0 transparent, 0 0 0 transparent, inset 5px 5px 10px #ba8c00, inset -5px -5px 10px #ffdd78;
+  }
+  header nav.slide {
+    transform: translateX(0);
+  }
+  .hero .container .cild-container {
+    flex-direction: column;
+    margin-top: 4rem;
+  }
+  .hero .container .cild-container .content p {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .hero .container .cild-container .content button {
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+  .hero .container .cild-container img {
+    width: 80%;
+  }
+  .memilih .container .sub-judul h3 {
+    margin-top: 3rem;
+    font-size: 3rem;
+  }
+  .memilih .container .sub-judul p {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .memilih .container .alasan .cild-alasan {
+    width: 100%;
+  }
+  .memilih .container .content {
+    flex-direction: column;
+    padding: 0 1rem;
+    height: 20rem;
+    gap: 2rem;
+  }
+  .memilih .container .content .text {
+    width: 100%;
+  }
+  .memilih .container .content .text p {
+    text-shadow: 0px 0px 5px black;
+    font-weight: 600;
+  }
+  .memilih .container .content button {
+    width: 100%;
+  }
+  .about .container {
+    margin-top: 2rem;
+  }
+  .about .container h3 {
+    font-size: 3rem;
+  }
+  .program .container {
+    margin-top: 3rem;
+  }
+  .program .container h3 {
+    font-size: 3rem;
+  }
+  .program .container .cild-program .box-program {
+    width: 50%;
+    height: 10rem;
+  }
+  .program .container .youtube {
+    gap: 1rem;
+  }
+  .program .container .youtube iframe {
+    width: 100%;
+  }
+  .register .container {
+    margin-top: 4rem;
+  }
+  .register .container .container-register form {
+    width: 100%;
+  }
+  .register .container .container-register form h4 {
+    font-size: 2.2rem;
+  }
+  .register .container .container-register form p {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .register .container .container-register form .container-input .input {
+    height: 4.6rem;
+  }
+  .register .container .container-register form .container-input .radio {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .register .container .container-register form .container-input .radio .tahap h6,
+  .register .container .container-register form .container-input .radio .gender h6 {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  .register .container .container-register form .container-input .radio .tahap label,
+  .register .container .container-register form .container-input .radio .gender label {
+    font-size: 1.2rem;
+  }
+  .register .container .container-register form .container-input .bimbingan h6 {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  .register .container .container-register form .container-input .bimbingan .row-bimbingan {
+    margin-bottom: 0.3rem;
+  }
+  .register .container .container-register form .container-input .bimbingan .row-bimbingan label {
+    font-size: 1.1rem;
+  }
+  .register .container .container-register form .container-input .btn {
+    font-size: 1.5rem;
+    height: 4rem;
+  }
+}
+@media (max-width: 400px) {
+  .login .form {
+    width: 97%;
+  }
+  .hero .container .text h2 {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+  }
+  .memilih .container .alasan .cild-alasan img {
+    width: 45%;
+  }
+  .memilih .container .alasan .cild-alasan .text-alasan h4 {
+    font-size: 2rem;
+  }
+  .memilih .container .alasan .cild-alasan .text-alasan p {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .memilih .container .content {
+    height: 30rem;
+  }
+  .memilih .container .content .text {
+    text-align: center;
+  }
+  .memilih .container .content .text h3 {
+    font-size: 2rem;
+  }
+  .memilih .container .content .text p {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  .memilih .container .content button {
+    height: 4rem;
+    font-size: 1.3rem;
+  }
+  .program .container .cild-program {
+    gap: 2.5rem;
+  }
+  .program .container .cild-program .box-program {
+    width: 100%;
+    height: 15rem;
+  }
+  .register .container .container-register form {
+    width: 100%;
+    padding: 5rem 1% 3rem;
+  }
+  .quran .box-ayat {
+    width: 15.3rem;
+  }
+}/*# sourceMappingURL=style.css.map */

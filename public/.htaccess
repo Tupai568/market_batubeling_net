@@ -1,0 +1,49 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+    
+    # Enable HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Protect the .htaccess file from being accessed directly
+    <Files ".htaccess">
+        Order allow,deny
+        Deny from all
+    </Files>
+
+    # Protect sensitive files
+    <FilesMatch "(^\.|env|artisan|composer\.(json|lock)|\.git)">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+
+    # Disable directory browsing
+    Options -Indexes
+
+    # Block access to specific IP addresses
+    <Limit GET POST>
+        Order deny,allow
+        Deny from 192.168.1.1
+        Allow from all
+    </Limit>
+
+    
+</IfModule>
