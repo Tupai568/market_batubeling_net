@@ -11,10 +11,18 @@
                     <img id="main-image" src="{{ asset("img/produk/".$detail->image->image) }}" alt="">
                 </div>
                 <div class="list-image">
+									<div class="card-tumbnail">
                     <img class="thumbnail" src="{{ asset("img/produk/".$detail->image->image) }}" alt="" data-src="{{ asset("img/produk/".$detail->image->image) }}">
+									</div>
+									<div class="card-tumbnail">
                     <img class="thumbnail" src="{{ asset("img/produk/".$detail->image->imageSatu) }}" alt="" data-src="{{ asset("img/produk/".$detail->image->imageSatu) }}">
+									</div>
+									<div class="card-tumbnail">
                     <img class="thumbnail" src="{{ asset("img/produk/".$detail->image->imageDua) }}" alt="" data-src="{{ asset("img/produk/".$detail->image->imageDua) }}">
+									</div>
+									<div class="card-tumbnail">
                     <img class="thumbnail" src="{{ asset("img/produk/".$detail->image->imageTiga) }}" alt="" data-src="{{ asset("img/produk/".$detail->image->imageTiga) }}">
+									</div>
                 </div>
             </div>
             <div class="detail-box-content">
@@ -37,12 +45,7 @@
         </div>
     </div>
 </div>
-
-
-
-			<!--
-      - PRODUCT
-    -->
+			<!--- PRODUCT -->
 
 			<div class="product-container">
 				<div class="container">

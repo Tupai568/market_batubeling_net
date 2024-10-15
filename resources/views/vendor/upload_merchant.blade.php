@@ -68,6 +68,9 @@
                 <!-- File Upload -->
                 <div class="form-group">
                     <label for="baner" class="form-label">Image Baner @error("baner")<span class="text-danger ml-2 custom-text-invalid ">{{ $message }}</span>@enderror</label>
+                    <div class="alert alert-primary" role="alert">
+                        Recomendasi 1170px X 400px.
+                    </div>
                     <input class="form-control" type="file" id="file" name="baner" onchange="previewImage()">
                 </div>
 
@@ -93,6 +96,9 @@
                 <!-- File Upload -->
                 <div class="form-group">
                     <label for="baner" class="form-label">Image Baner @error("baner")<span class="text-danger ml-2 custom-text-invalid ">{{ $message }}</span>@enderror</label>
+                    <div class="alert alert-primary" role="alert">
+                        Recomendasi 1170px X 400px.
+                    </div>
                     <input class="form-control" type="file" id="file" name="baner" onchange="previewImage()">
                     <img id="preview" class="mt-2" />
                 </div>

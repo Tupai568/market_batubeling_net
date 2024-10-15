@@ -165,15 +165,6 @@ class UpdateProductResellerController extends Controller
         // Membaca gambar menggunakan Intervention Image
         $image = magick::read($imagePath);
 
-        // Resize gambar dengan menjaga rasio
-        $image->resize(800, 700);
-
-        //memberikan watermark
-        $image->place($watermark, 'bottom-right');
-
-        //pertajam gambar 
-        $image->sharpen(3); // Nilai 5 adalah contoh, sesuaikan sesuai kebutuhan
-
         // ubah gambar ke webp
         $image->encode(new WebpEncoder(quality: 75)); // Intervention\Image\EncodedImage
 

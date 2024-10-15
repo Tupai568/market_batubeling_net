@@ -20,7 +20,6 @@ class CreateProductResellerController extends Controller
 {
 
     /* Start Function Utama */
-
     public function create()
     {
         return view('vendor.upload', [
@@ -30,6 +29,7 @@ class CreateProductResellerController extends Controller
             "Notifications" => NotificationController::notifReseller(),
         ]);
     }
+
 
     public function store(Request $request)
     {
@@ -110,11 +110,16 @@ class CreateProductResellerController extends Controller
             'imageSatu' => 'required|image|mimes:jpg,jpeg,png|max:1024',
             'imageDua' => 'required|image|mimes:jpg,jpeg,png|max:1024',
             'imageTiga' => 'required|image|mimes:jpg,jpeg,png|max:1024',
+        ], [
+            'image.max' => 'File size for Image must not exceed 1 MB.',
+            'imageSatu.max' => 'File size for Image must not exceed 1 MB.',
+            'imageDua.max' => 'File size for Image must not exceed 1 MB.',
+            'imageTiga.max' => 'File size for Image must not exceed 1 MB.',
         ]);
 
         $images = ['image', 'imageSatu', 'imageDua', 'imageTiga'];
         $destinationPath = public_path('img/produk');
-        $watermarkPath = public_path('img/watermark.png'); // Path ke gambar watermark
+        $watermarkPath = public_path('img/watermak.png'); // Path ke gambar watermark
         $imageData = [];
 
         foreach ($images as $key) {
@@ -127,7 +132,7 @@ class CreateProductResellerController extends Controller
             $outputFilePath = $destinationPath . '/' . 'product' . Str::uuid() . '.webp';
 
             // Panggil fungsi untuk meresize gambar
-            $newfile = $this->resizeImage($filePath, $outputFilePath, $watermarkPath); // Resize ke 800x800 px
+            $newfile = $this->resizeImage($filePath, $outputFilePath, $watermarkPath); 
 
             //delete gambar
             if (File::exists($filePath)) {
@@ -146,14 +151,8 @@ class CreateProductResellerController extends Controller
         // Membaca gambar menggunakan Intervention Image
         $image = magick::read($imagePath);
 
-        // Resize gambar dengan menjaga rasio
-        $image->resize(800, 700);
-
         //memberikan watermark
-        $image->place($watermark, 'bottom-right');
-
-        //pertajam gambar 
-        $image->sharpen(3); // Nilai 5 adalah contoh, sesuaikan sesuai kebutuhan
+        // $image->place($watermark, 'bottom-right');
 
         // ubah gambar ke webp
         $image->encode(new WebpEncoder(quality: 75)); // Intervention\Image\EncodedImage
@@ -163,143 +162,6 @@ class CreateProductResellerController extends Controller
 
         return basename($outputPath);
     }
-
-    // private function addWatermark($imagePath, $watermarkPath, $outputPath)
-    // {
-    //     // Muat gambar utama
-    //     $image = magick::read($imagePath);
-
-    //     // Muat gambar watermark
-    //     $watermark = magick::read($watermarkPath);
-
-    //     // Tambahkan watermark ke gambar utama di posisi kanan bawah dengan offset 10px
-    //     $image->insert($watermark, 'bottom-right');
-
-    //     // Simpan gambar dengan watermark
-    //     $image->save($outputPath);
-    // }
-
-
-
-    // private function addWatermark($imagePath, $watermarkPath, $outputPath)
-    // {
-    //     // Muat gambar utama
-    //     $image = imagecreatefromjpeg($imagePath);
-    //     if (!$image) {
-    //         return;
-    //     }
-
-    //     // Muat gambar watermark
-    //     $watermark = imagecreatefrompng($watermarkPath);
-    //     if (!$watermark) {
-    //         imagedestroy($image);
-    //         return;
-    //     }
-
-    //     // Tentukan posisi watermark
-    //     $watermarkWidth = imagesx($watermark);
-    //     $watermarkHeight = imagesy($watermark);
-
-    //     // Posisi watermark di sudut kanan bawah
-    //     $imageWidth = imagesx($image);
-    //     $imageHeight = imagesy($image);
-    //     $destX = $imageWidth - $watermarkWidth - 10; // Offset 10px dari tepi kanan
-    //     $destY = $imageHeight - $watermarkHeight - 10; // Offset 10px dari tepi bawah
-
-    //     // Tambahkan watermark ke gambar utama
-    //     imagecopy(
-    //         $image,
-    //         $watermark,
-    //         $destX,
-    //         $destY,
-    //         0,
-    //         0,
-    //         $watermarkWidth,
-    //         $watermarkHeight
-    //     );
-
-    //     // Simpan gambar dengan watermark
-    //     imagejpeg($image, $outputPath);
-
-    //     // Hapus gambar dari memori
-    //     imagedestroy($image);
-    //     imagedestroy($watermark);
-    // }
-
-    // private function addWatermark($imagePath, $watermarkPath, $outputPath)
-    // {
-    //     // Dapatkan ekstensi gambar utama
-    //     $imageExtension = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
-
-    //     // Muat gambar utama berdasarkan ekstensi
-    //     switch ($imageExtension) {
-    //         case 'jpeg':
-    //         case 'jpg':
-    //             $image = imagecreatefromjpeg($imagePath);
-    //             break;
-    //         case 'png':
-    //             $image = imagecreatefrompng($imagePath);
-    //             break;
-    //         case 'gif':
-    //             $image = imagecreatefromgif($imagePath);
-    //             break;
-    //         default:
-    //             return; // Format gambar tidak didukung
-    //     }
-    //     if (!$image) {
-    //         return;
-    //     }
-
-    //     // Muat gambar watermark (diasumsikan PNG untuk watermark)
-    //     $watermark = imagecreatefrompng($watermarkPath);
-    //     if (!$watermark) {
-    //         imagedestroy($image);
-    //         return;
-    //     }
-
-    //     // Tentukan posisi watermark
-    //     $watermarkWidth = imagesx($watermark);
-    //     $watermarkHeight = imagesy($watermark);
-
-    //     // Posisi watermark di sudut kanan bawah
-    //     $imageWidth = imagesx($image);
-    //     $imageHeight = imagesy($image);
-    //     $destX = $imageWidth - $watermarkWidth - 10; // Offset 10px dari tepi kanan
-    //     $destY = $imageHeight - $watermarkHeight - 10; // Offset 10px dari tepi bawah
-
-    //     // Tambahkan watermark ke gambar utama
-    //     imagecopy(
-    //         $image,
-    //         $watermark,
-    //         $destX,
-    //         $destY,
-    //         0,
-    //         0,
-    //         $watermarkWidth,
-    //         $watermarkHeight
-    //     );
-
-    //     // Simpan gambar dengan watermark sesuai dengan format gambar utama
-    //     switch ($imageExtension) {
-    //         case 'jpeg':
-    //         case 'jpg':
-    //             imagejpeg($image, $outputPath);
-    //             break;
-    //         case 'png':
-    //             imagepng($image, $outputPath);
-    //             break;
-    //         case 'gif':
-    //             imagegif($image, $outputPath);
-    //             break;
-    //     }
-
-    //     // Hapus gambar dari memori
-    //     imagedestroy($image);
-    //     imagedestroy($watermark);
-    // }
-
-
-
 
     /* End Function Dukungan */
 }

@@ -88,7 +88,7 @@
 
               <!-- File Upload -->
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Image @error("image")<span class="text-danger ml-2 custom-text-invalid ">{{ $message }}</span>@enderror</label>
+                <label for="exampleFormControlTextarea1">Image @if ($errors->any())<span class="text-danger ml-2 custom-text-invalid ">{{ $errors->first() }}</span>@endif</label>
 
                     <div class="container_upload">
 
